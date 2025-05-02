@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
             $table->integer('id_pengguna');
-            $table->date('tanggal_pembayaran');
+            $table->dateTime('tanggal_pembayaran');
             $table->decimal('total_harga', 10, 2);
             $table->enum('status_pembayaran', ['menunggu', 'diverifikasi', 'ditolak'])->default('menunggu');
             $table->timestamps();

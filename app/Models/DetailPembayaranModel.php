@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class DetailPembayaranModel extends Model
 {
     use HasFactory;
+
+    protected $table = 'detail_pembayaran';
     protected $guarded = [];
 
     public function pembayaran()

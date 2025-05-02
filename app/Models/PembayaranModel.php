@@ -17,7 +17,7 @@ class PembayaranModel extends Model
         return $this->belongsTo(User::class, 'id_pengguna', 'id');
     }
 
-    public function detailPembelian()
+    public function detailPembayaran()
     {
         return $this->hasMany(DetailPembayaranModel::class, 'id_pembayaran', 'id');
     }
