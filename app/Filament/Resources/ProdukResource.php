@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Forms\Components\Placeholder;
 use Filament\Tables;
 use App\Models\Produk;
 use Filament\Forms\Form;
@@ -12,11 +11,15 @@ use App\Models\ProdukModel;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\Placeholder;
 use App\Filament\Resources\ProdukResource\Pages;
+use Symfony\Contracts\Service\Attribute\Required;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ProdukResource\RelationManagers;
-use Symfony\Contracts\Service\Attribute\Required;
+use Filament\Forms\Components\FileUpload;
+use Filament\Infolists\Components\ImageEntry;
 
 class ProdukResource extends Resource
 {
@@ -38,6 +41,9 @@ class ProdukResource extends Resource
                     ->required()
                     ->label('Harga')
                     ->placeholder('Rp 8000'),
+                FileUpload::make('gambar_produk')
+                    ->required()
+                    ->label('Gambar'),
                 TextInput::make('stok_produk')
                     ->required()
                     ->label('Stok')
@@ -58,6 +64,9 @@ class ProdukResource extends Resource
                     ->searchable(),
                 TextColumn::make('harga_produk')
                     ->label('Harga'),
+                ImageColumn::make('gambar_produk')
+                    ->label('Gambar')
+                    ->size(64),
                 TextColumn::make('stok_produk')
                     ->label('Stok'),
                 TextColumn::make('deskripsi_produk')
