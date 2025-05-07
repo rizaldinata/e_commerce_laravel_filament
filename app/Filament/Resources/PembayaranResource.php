@@ -86,7 +86,7 @@ class PembayaranResource extends Resource
                     ->modalContent(fn (PembayaranModel $record) => view('filament.pembayaran.detail', [
                         'pembayaran' => PembayaranModel::with('detailPembayaran.produk')->find($record->id),
                     ]))
-                    
+                    ->modalCancelActionLabel('Kembali')
                     ->modalWidth('4xl')
                     ->icon('heroicon-o-eye'),
             ])

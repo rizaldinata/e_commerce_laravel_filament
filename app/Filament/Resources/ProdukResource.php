@@ -42,8 +42,12 @@ class ProdukResource extends Resource
                     ->label('Harga')
                     ->placeholder('Rp 8000'),
                 FileUpload::make('gambar_produk')
-                    ->required()
-                    ->label('Gambar'),
+                    ->label('Gambar Produk')
+                    ->image()
+                    ->disk('s3')
+                    ->directory('produk')
+                    ->visibility('public')
+                    ->required(),
                 TextInput::make('stok_produk')
                     ->required()
                     ->label('Stok')
@@ -65,8 +69,9 @@ class ProdukResource extends Resource
                 TextColumn::make('harga_produk')
                     ->label('Harga'),
                 ImageColumn::make('gambar_produk')
-                    ->label('Gambar')
-                    ->size(64),
+                    ->label('Gambar Produk')
+                    ->size(64)
+                    ->disk('s3'),
                 TextColumn::make('stok_produk')
                     ->label('Stok'),
                 TextColumn::make('deskripsi_produk')
